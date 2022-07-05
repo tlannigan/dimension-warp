@@ -17,7 +17,7 @@ class DimensionWarp : JavaPlugin() {
         // Teleport command
         CommandAPICommand("warp")
             .withArguments(EntitySelectorArgument<Player>("player", EntitySelector.ONE_PLAYER))
-            .withPermission("dimensionwarp")
+            .withPermission("dw.warp")
             .executesPlayer(PlayerCommandExecutor { player: Player, args: Array<Any?> ->
                 val targetPlayer = args[0] as Player
                 val targetDimension = targetPlayer.world.environment
