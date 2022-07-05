@@ -18,10 +18,10 @@ class DimensionWarp : JavaPlugin() {
         CommandAPICommand("warp")
             .withArguments(EntitySelectorArgument<Player>("player", EntitySelector.ONE_PLAYER))
             .executesPlayer(PlayerCommandExecutor { player: Player, args: Array<Any?> ->
-                val senderDimension = player.world.environment
-
                 val targetPlayer = args[0] as Player
                 val targetDimension = targetPlayer.world.environment
+
+                val senderDimension = player.world.environment
 
                 if (player.uniqueId == targetPlayer.uniqueId) {
                     player.sendMessage("Why would you want to teleport to yourself?")
