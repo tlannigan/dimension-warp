@@ -2,7 +2,6 @@
 /out
 /target
 /.gradle
-
 /build/classes
 /build/kotlin
 /build/resources
