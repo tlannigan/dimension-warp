@@ -18,14 +18,18 @@ class DimensionWarp : JavaPlugin() {
         CommandAPICommand("warp")
             .withArguments(EntitySelectorArgument<Player>("player", EntitySelector.ONE_PLAYER))
             .executesPlayer(PlayerCommandExecutor { player: Player, args: Array<Any?> ->
+                val senderDimension = player.world.environment
+
                 val targetPlayer = args[0] as Player
+                val targetDimension = targetPlayer.world.environment
+
                 if (player.uniqueId == targetPlayer.uniqueId) {
                     player.sendMessage("Why would you want to teleport to yourself?")
-                } else if (player.world != targetPlayer.world) {
+                } else if (senderDimension != targetDimension) {
                     player.sendMessage("Teleporting you to ${targetPlayer.name}")
                     player.teleport(targetPlayer)
                 } else {
-                    player.sendMessage("You can't be in the same dimension as your target.")
+                    player.sendMessage("You can't teleport to a player in the same dimension as you.")
                 }
             })
             .register()
