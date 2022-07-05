@@ -1,0 +1,5 @@
+name: DimensionWarp
+version: 1.0
+author: Tirsty
+main: com.tlannigan.dimensionwarp.DimensionWarp
+api-version: 1.19
